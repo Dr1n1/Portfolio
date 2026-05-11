@@ -1,0 +1,123 @@
+.header {
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    padding: 10px 0;
+  }
+  
+  .masterheader {
+    flex-direction: row;
+    justify-content: space-around;
+    position: absolute;
+    padding: 1rem 0px;
+    height: 100px;
+    align-items: center;
+  }
+  
+  .header span {
+    padding: 5px 15px;
+    border-radius: 50px; /* pill-like border-radius */
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-radius 0.3s ease;
+  }
+  
+  .header span.active {
+    background-color: orange;
+    border-radius: 5px;
+  }
+  .borderofheader {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 100px;
+  }
+  .tab-item.active {
+    color: white !important;
+    transition: ease-in 0.3s;
+  }
+  .tab-item {
+    color: white !important;
+    transition: ease-in 0.3s;
+  }
+  .tab-item .selectorrr .imagetabitem  {
+    display: none !important;
+  }
+  .tab-item.active .selectorrr .imagetabitem {
+    display: inherit !important;
+    transition: ease-in 0.3s;
+  
+  }
+  .about-active {
+    color: black !important;  
+  }
+  
+   
+  
+  .costumncolor {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow: rgba(255, 255, 255, 0.15) 0px 0px 10px 0px inset;
+    opacity: 1;
+  }
+  
+  .costumncolor {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow: rgba(255, 255, 255, 0.15) 0px 0px 10px 0px inset;
+    opacity: 1;
+  }
+  
+  .costumncolordark {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow: rgba(109, 117, 117, 0.5) 0px 0px 10px 0px inset;
+    opacity: 1;
+  }
+  
+  .flex.space-x-1.borderofheader {
+    border-radius: 25px;
+  }
+  
+  .tab-item {
+    border-radius: 20px;
+    transition: background-color 0.3s;
+  }
+  
+  .tab-item:hover,
+  .tab-item.active {
+    /* background-color: rgba(255, 255, 255, 0.5); */
+    border-radius: 10px;
+  }
+  
+  .default-pill {
+    background-color: white;
+    opacity: 0.20;
+  
+  }
+  
+  .about-pill {
+    background-color: black; /* e.g., red */
+    opacity: 0.20;
+  
+  }
+  
+  .default-active-pill {
+    background-color: black;
+    opacity: 0.60;
+  
+  }
+  
+  .about-active-pill {
+    background-color: black; /* e.g., blue */
+    opacity: 0.80;
+  
+  }
+  
+  
+  

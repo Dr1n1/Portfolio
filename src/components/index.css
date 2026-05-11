@@ -1,0 +1,60 @@
+.backgroundiamgee {
+    background-image: url("../images/background2.jpg");
+    height: 100vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.backgroundcolor {
+    background-color: transparent;
+    background-image: linear-gradient(180deg, #0000007A 85%, #000000 100%);
+    height: 100vh;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    transition-behavior: normal, normal, normal;
+    transition-duration: 0.3s, 0.3s, 0.3s;
+    transition-timing-function: ease, ease, ease;
+    transition-delay: 0s, 0s, 0s;
+    transition-property: background, border-radius, opacity;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+.hoverclasss:hover {
+background-color: #202022;
+transition: 3ms;
+}
+.containeraboutselector {
+    height: 100vh;
+    overflow-y: scroll;
+    transition: linear 300ms;
+  }
+  .snapaboutdiv {
+    width: 100%;
+  }
+
+@media screen and (max-width: 500px) {
+.backgroundcolor {
+    height: auto;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+.backgroundiamgee {
+    height: auto;
+    
+}
+}
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.blockofdata {
+    width: auto;
+    max-width: 1000px; 
+    backdrop-filter: blur(10px);
+}

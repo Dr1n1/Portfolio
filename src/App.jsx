@@ -16,7 +16,7 @@ function App() {
             path="/"
             element={
               <>
-                <div className="hidden lg:block ">
+                <div className="hidden">
                   <Header activeSection={activeSection} />
                 </div>
                 <Home setActiveSection={setActiveSection} />

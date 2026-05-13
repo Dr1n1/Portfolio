@@ -91,9 +91,9 @@ transition: 3ms;
 }
 
 .section-one-accent {
-    align-items: center;
+    align-items: flex-start;
     background: linear-gradient(145deg, #7b4f7f 0%, #aa6f8f 45%, #d28a7d 100%);
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .section-one-copy {
@@ -110,25 +110,15 @@ transition: 3ms;
     line-height: 0.8;
 }
 
-.section-one-orb {
-    align-items: center;
-    background: rgba(236, 217, 217, 0.95);
-    border-radius: 999px;
-    color: #1f1f2c;
-    display: flex;
-    flex-direction: column;
-    font-size: 0.72rem;
-    font-weight: 600;
-    gap: 0.25rem;
-    height: 180px;
-    justify-content: center;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    width: 180px;
+.section-one-letter-bottom {
+    align-self: flex-start;
+    margin-top: auto;
 }
 
 .section-one-description {
     font-size: 0.84rem;
+    font-style: italic;
+    font-weight: 600;
     line-height: 1.5;
     max-width: 220px;
     text-transform: uppercase;
@@ -216,6 +206,69 @@ transition: 3ms;
     gap: 1rem;
     grid-template-columns: 1.2fr 1fr;
     margin-bottom: 2rem;
+}
+
+.section-two-grid-editorial {
+    border: 1px solid rgba(20, 20, 26, 0.15);
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin-bottom: 2rem;
+    min-height: 72vh;
+}
+
+.section-two-panel {
+    border-right: 1px solid rgba(20, 20, 26, 0.15);
+    color: #181824;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.75rem;
+}
+
+.section-two-panel:last-child {
+    border-right: 0;
+}
+
+.section-two-panel-solid {
+    background: #dfd6d7;
+}
+
+.section-two-panel-accent {
+    align-items: flex-start;
+    background: linear-gradient(145deg, #3d506e 0%, #52698c 50%, #7b8faf 100%);
+    justify-content: space-between;
+}
+
+.section-two-panel-copy {
+    background: #e9d9ce;
+}
+
+.section-two-panel-nav {
+    align-items: flex-end;
+}
+
+.section-two-symbol {
+    font-size: 1.25rem;
+}
+
+.section-two-letter {
+    font-family: "Times New Roman", Georgia, serif;
+    font-size: clamp(5rem, 12vw, 12rem);
+    line-height: 0.8;
+}
+
+.section-two-index {
+    font-family: "Times New Roman", Georgia, serif;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.section-two-copy {
+    font-size: 0.9rem;
+    font-style: italic;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
 }
 
 .section-two-card {
@@ -316,12 +369,19 @@ transition: 3ms;
         border-right: 0;
     }
 
-    .section-two-grid {
-        grid-template-columns: 1fr;
+    .section-two-grid-editorial {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        min-height: auto;
     }
 
-    .section-two-profile {
-        grid-row: auto;
+    .section-two-panel {
+        border-bottom: 1px solid rgba(20, 20, 26, 0.15);
+        border-right: 1px solid rgba(20, 20, 26, 0.15);
+        min-height: 320px;
+    }
+
+    .section-two-panel:nth-child(2n) {
+        border-right: 0;
     }
 }
 
@@ -344,11 +404,6 @@ transition: 3ms;
         font-size: clamp(3.2rem, 19vw, 6.4rem);
     }
 
-    .section-one-orb {
-        height: 130px;
-        width: 130px;
-    }
-
     .section-two-showcase {
         padding: 0.5rem;
     }
@@ -360,5 +415,14 @@ transition: 3ms;
 
     .section-two-metric-grid {
         grid-template-columns: 1fr;
+    }
+
+    .section-two-grid-editorial {
+        grid-template-columns: 1fr;
+    }
+
+    .section-two-panel,
+    .section-two-panel:nth-child(2n) {
+        border-right: 0;
     }
 }

@@ -31,35 +31,27 @@ function SectionTwoShowcase({ children }) {
           ))}
         </nav>
 
-        <div className="section-two-grid">
-          <article className="section-two-card section-two-profile">
-            <div className="section-two-avatar">D</div>
-            <p className="section-two-muted">About me</p>
-            <h2>
-              I&apos;m,
-              <br />
-              Drin
-            </h2>
-            <p>Building visual systems and production-ready web apps.</p>
+        <div className="section-two-grid-editorial">
+          <article className="section-two-panel section-two-panel-solid">
+            <p className="section-two-symbol">◆</p>
+            <h2 className="section-two-letter">D</h2>
+            <p className="section-two-index">01</p>
           </article>
 
-          <article className="section-two-card section-two-title">
-            <h2>Portfolio</h2>
-            <div className="section-two-metric-grid">
-              <div className="section-two-metric">
-                <strong>251</strong>
-                <span>Projects</span>
-              </div>
-              <div className="section-two-metric">
-                <strong>156</strong>
-                <span>Awards</span>
-              </div>
-            </div>
+          <article className="section-two-panel section-two-panel-accent">
+            <h2 className="section-two-letter">R</h2>
+            <p className="section-two-index">02</p>
           </article>
 
-          <article className="section-two-card section-two-feature">
-            <p>Featured Work</p>
-            <strong>172 Global Design Awards</strong>
+          <article className="section-two-panel section-two-panel-copy">
+            <h2 className="section-two-letter">I</h2>
+            <p className="section-two-copy">Make it loud. Make it useful.</p>
+            <p className="section-two-index">03</p>
+          </article>
+
+          <article className="section-two-panel section-two-panel-solid section-two-panel-nav">
+            <h2 className="section-two-letter">N</h2>
+            <p className="section-two-index">04</p>
           </article>
         </div>
 

@@ -2,8 +2,8 @@ import React from "react";
 
 const sectionOneNav = [
   { label: "Intro", target: "#section-one" },
-  { label: "Showcase", target: "#section-two" },
   { label: "About", target: "#about" },
+  { label: "Work", target: "#work" },
 ];
 
 function SectionOneHero() {
@@ -24,27 +24,23 @@ function SectionOneHero() {
         </article>
 
         <article className="section-one-panel section-one-accent">
-          <div className="section-one-orb">
-            <span>NOT SOUL,</span>
-            <span>BUT DRIN.</span>
-          </div>
+          <h2 className="section-one-letter">R</h2>
           <p className="section-one-index">02</p>
         </article>
 
         <article className="section-one-panel section-one-copy">
-          <h2 className="section-one-letter">R</h2>
-          <p className="section-one-description">
-            Full-stack developer focused on bold interfaces, useful products, and
-            clean execution.
-          </p>
-          <button
-            type="button"
-            className="section-one-arrow"
-            onClick={() => onJump("#section-two")}
-            aria-label="Go to second section"
-          >
-            ↘
-          </button>
+          <div>
+            <p className="section-one-description">To the builder, the spoils.</p>
+            <button
+              type="button"
+              className="section-one-arrow"
+              onClick={() => onJump("#about")}
+              aria-label="Go to about section"
+            >
+              ↘
+            </button>
+          </div>
+          <h2 className="section-one-letter section-one-letter-bottom">I</h2>
           <p className="section-one-index">03</p>
         </article>
 

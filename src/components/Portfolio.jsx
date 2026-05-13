@@ -32,10 +32,10 @@ function Portfolio() {
               <div className="mx-auto grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-2 mb-10">
                 {dataofportfolio.map((project, index) => (
                      <a href={project.link} key={index} className="text-center">
-                    <div  className="relative group overflow-hidden bg-white rounded-md shadow-md h-full" style={{height: "300px"}}>
-          <img src={project.img} alt={project.title} className="w-full object-cover transition duration-300 transform group-hover:scale-105" style={{height: 'inherit'}} />
-          <div className="absolute inset-0 flex items-center justify-center opacity-0 bg-black bg-opacity-50 transition duration-300 transform group-hover:opacity-100 hover:scale-105">
-            <p className="text-white text-center opacity-0 group-hover:opacity-100">{project.title}</p>
+                    <div  className="project-tile relative group overflow-hidden bg-white rounded-md h-full" style={{height: "300px"}}>
+          <img src={project.img} alt={project.title} className="project-tile-image w-full object-cover" style={{height: 'inherit'}} />
+          <div className="project-tile-overlay absolute inset-0 flex items-center justify-center">
+            <p className="text-white text-center opacity-0 group-hover:opacity-100 transition duration-500">{project.title}</p>
           </div>
         </div>
                    </a>

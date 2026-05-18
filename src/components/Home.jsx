@@ -9,7 +9,7 @@ import BlueprintTechnicalSystemSection from "./BlueprintTechnicalSystemSection";
 import BlueprintSelectedWorkSection from "./BlueprintSelectedWorkSection";
 import BlueprintFooterRow from "./BlueprintFooterRow";
 import "./index.css"
-function Home({setActiveSection}) {
+function Home({ activeSection, setActiveSection }) {
   const { revealSection } = useBlueprintMotion();
   const [homeRef, homeInView] = useInView ({threshold: 0.2});
   const [aboutRef, aboutInView] = useInView ({threshold: 0.1});
@@ -24,7 +24,7 @@ function Home({setActiveSection}) {
   return (
     <div className="containeraboutselector">
       <div ref={homeRef} className="snapaboutdiv" id="home">
-        <SectionOneHero />
+        <SectionOneHero activeSection={activeSection} />
       </div>
       <main className="blueprint-page">
         <motion.div

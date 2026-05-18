@@ -1,22 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
 const sectionOneNav = [
-  { label: "Intro", target: "#section-one" },
-  { label: "About", target: "#about" },
-  { label: "Work", target: "#work" },
+  { label: "Intro", target: "#home", activePath: "#home" },
+  { label: "About", target: "#about", activePath: "#about" },
+  { label: "Work", target: "#work", activePath: "#work" },
 ];
 
-function SectionOneHero() {
+function SectionOneHero({ activeSection = "#home" }) {
   const prefersReducedMotion = useReducedMotion();
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 12);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   const onJump = (target) => {
     const node = document.querySelector(target);
@@ -140,29 +132,33 @@ function SectionOneHero() {
           animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
           transition={tileTransition(0.38)}
         >
-          <motion.nav
-            className={`section-one-nav ${isScrolled ? "is-scrolled" : ""}`}
-            aria-label="Section one navigation"
-            initial={prefersReducedMotion ? false : { opacity: 0, y: 10 }}
-            animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
-            transition={tileTransition(0.88)}
+          <nav
+            className="section-one-nav"
+            aria-label="Section navigation"
           >
             {sectionOneNav.map((item, index) => (
-              <motion.button
-                key={item.target}
-                type="button"
-                className="section-one-nav-btn"
-                onClick={() => onJump(item.target)}
-                whileHover={prefersReducedMotion ? {} : { y: -2, scale: 1.01 }}
-                whileTap={prefersReducedMotion ? {} : { scale: 0.99 }}
-                initial={prefersReducedMotion ? false : { opacity: 0 }}
-                animate={prefersReducedMotion ? {} : { opacity: 1 }}
-                transition={tileTransition(0.98 + index * 0.08)}
-              >
-                {item.label}
-              </motion.button>
+              <React.Fragment key={item.target}>
+                {index > 0 ? (
+                  <span className="section-one-nav-sep" aria-hidden="true">
+                    /
+                  </span>
+                ) : null}
+                <motion.button
+                  type="button"
+                  className={`section-one-nav-btn${
+                    activeSection === item.activePath ? " is-active" : ""
+                  }`}
+                  onClick={() => onJump(item.target)}
+                  whileTap={prefersReducedMotion ? {} : { opacity: 0.7 }}
+                  initial={prefersReducedMotion ? false : { opacity: 0 }}
+                  animate={prefersReducedMotion ? {} : { opacity: 1 }}
+                  transition={tileTransition(0.98 + index * 0.08)}
+                >
+                  {item.label}
+                </motion.button>
+              </React.Fragment>
             ))}
-          </motion.nav>
+          </nav>
           <motion.h2
             className="section-one-letter"
             initial={prefersReducedMotion ? false : { opacity: 0, y: 14 }}

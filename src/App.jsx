@@ -19,7 +19,10 @@ function App() {
                 <div className="hidden">
                   <Header activeSection={activeSection} />
                 </div>
-                <Home setActiveSection={setActiveSection} />
+                <Home
+                  activeSection={activeSection}
+                  setActiveSection={setActiveSection}
+                />
               </>
             }
             />

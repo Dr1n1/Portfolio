@@ -8,23 +8,31 @@ const projects = [
     no: "01",
     title: "DecPro",
     stack: "Web Platform / Engineering Build",
+    role: "Architecture + Full-stack Delivery",
+    note: "Blueprint-style project system for scale and maintainability.",
     img: decpro,
     link: "https://decprojects.net",
-    featured: true,
+    objectPosition: "center 22%",
   },
   {
     no: "02",
     title: "NyInterboro",
     stack: "Business Web / CMS + UX",
+    role: "Frontend + Content System",
+    note: "Structured information layout with performance-oriented UX.",
     img: nyinterboro,
     link: "https://nyinterboro.com",
+    objectPosition: "center center",
   },
   {
     no: "03",
     title: "PRonins",
     stack: "Corporate Site / Product Presence",
+    role: "Design-to-code Execution",
+    note: "Clean corporate presentation with conversion-focused sections.",
     img: pronins,
     link: "https://pronins.net",
+    objectPosition: "center center",
   },
 ];
 
@@ -34,8 +42,7 @@ function BlueprintSelectedWorkSection() {
   return (
     <section className="blueprint-section" id="work">
       <header className="blueprint-heading-row">
-        <span className="blueprint-heading-index">04</span>
-        <span className="blueprint-heading-label">Selected Work</span>
+        <p className="blueprint-heading-kicker">04 / SELECTED WORK</p>
       </header>
 
       <div className="selected-work-grid">
@@ -47,8 +54,16 @@ function BlueprintSelectedWorkSection() {
         >
           <p className="micro-label">Project {featured.no}</p>
           <h3>{featured.title}</h3>
-          <p>{featured.stack}</p>
-          <img src={featured.img} alt={featured.title} />
+          <p className="selected-stack">{featured.stack}</p>
+          <p className="selected-role">{featured.role}</p>
+          <div className="selected-image-wrap">
+            <img
+              src={featured.img}
+              alt={featured.title}
+              style={{ objectPosition: featured.objectPosition }}
+            />
+          </div>
+          <p className="selected-note">{featured.note}</p>
         </a>
 
         <a
@@ -59,8 +74,16 @@ function BlueprintSelectedWorkSection() {
         >
           <p className="micro-label">Project {second.no}</p>
           <h3>{second.title}</h3>
-          <p>{second.stack}</p>
-          <img src={second.img} alt={second.title} />
+          <p className="selected-stack">{second.stack}</p>
+          <p className="selected-role">{second.role}</p>
+          <div className="selected-image-wrap">
+            <img
+              src={second.img}
+              alt={second.title}
+              style={{ objectPosition: second.objectPosition }}
+            />
+          </div>
+          <p className="selected-note">{second.note}</p>
         </a>
 
         <a
@@ -71,8 +94,16 @@ function BlueprintSelectedWorkSection() {
         >
           <p className="micro-label">Project {third.no}</p>
           <h3>{third.title}</h3>
-          <p>{third.stack}</p>
-          <img src={third.img} alt={third.title} />
+          <p className="selected-stack">{third.stack}</p>
+          <p className="selected-role">{third.role}</p>
+          <div className="selected-image-wrap">
+            <img
+              src={third.img}
+              alt={third.title}
+              style={{ objectPosition: third.objectPosition }}
+            />
+          </div>
+          <p className="selected-note">{third.note}</p>
         </a>
 
         <article className="blueprint-cell selected-spec">

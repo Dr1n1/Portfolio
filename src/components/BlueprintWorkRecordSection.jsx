@@ -2,9 +2,15 @@ import React from "react";
 
 const workRecords = [
   {
+    company: "PRonins",
+    role: "Full-stack Developer",
+    period: "2026 - Present",
+    impact: "Offering AI-powered solutions for businesses to improve their operations and efficiency.",
+  },
+  {
     company: "NewFive",
     role: "Full-stack Developer",
-    period: "2024 - Present",
+    period: "2024 - 2025",
     impact: "Led Shopify app product lifecycle from UX and backend logic to release.",
   },
   {
@@ -31,8 +37,7 @@ function BlueprintWorkRecordSection() {
   return (
     <section className="blueprint-section">
       <header className="blueprint-heading-row">
-        <span className="blueprint-heading-index">02</span>
-        <span className="blueprint-heading-label">Work Record</span>
+        <p className="blueprint-heading-kicker">02 / WORK RECORD</p>
       </header>
 
       <div className="work-record-table">

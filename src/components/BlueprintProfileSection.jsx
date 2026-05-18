@@ -11,23 +11,22 @@ const profileMeta = [
   { label: "Location", value: "Prishtina, Kosovo" },
   { label: "Status", value: "Available for selected builds" },
   { label: "Focus", value: "React, Shopify Apps, Product Interfaces" },
-  { label: "Experience", value: "7+ years delivery-focused web work" },
+  { label: "Experience", value: "5+ years delivery-focused web work" },
 ];
 
 function BlueprintProfileSection() {
   return (
     <section className="blueprint-section" id="about">
       <header className="blueprint-heading-row">
-        <span className="blueprint-heading-index">01</span>
-        <span className="blueprint-heading-label">Profile</span>
+        <p className="blueprint-heading-kicker">01 / PROFILE</p>
       </header>
 
       <div className="profile-grid">
         <article className="blueprint-cell profile-main">
           <p className="micro-label">Identity</p>
-          <h2 className="blueprint-title">Web-Application Developer.</h2>
+          <h2 className="blueprint-title profile-display">Web-Application Developer.</h2>
           <p className="blueprint-copy">
-            Drin designs and ships web products with a balance of visual precision,
+            Designing and shipping web products with a balance of visual precision,
             practical architecture, and calm execution.
           </p>
           <div className="profile-links">
@@ -42,10 +41,15 @@ function BlueprintProfileSection() {
 
         <aside className="blueprint-cell profile-side">
           <p className="micro-label">Current Position</p>
-          <p className="blueprint-copy">
+          <p className="blueprint-copy spec-copy">
             Freelance full-stack developer focused on frontend systems and
             scalable web applications for product teams and independent brands.
           </p>
+          <div className="spec-list">
+            <p>System-first frontend architecture</p>
+            <p>Shopify app product implementation</p>
+            <p>Design-to-code execution with measurable output</p>
+          </div>
         </aside>
       </div>
 

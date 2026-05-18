@@ -7,20 +7,22 @@ const technicalSystem = [
   { title: "Animations", items: ["Framer Motion", "GSAP", "Micro-interactions"] },
   { title: "Tools", items: ["GitHub", "Bitbucket", "Jira", "ClickUp", "Toggl"] },
   { title: "Shopify", items: ["Liquid", "Mantle", "Custom App UX", "Inventory Sync"] },
+  { title: "AI", items: ["OpenAI", "Anthropic", "Copilot", "Claude"] },
+  { title: "CMS", items: ["Shopify", "WordPress", "Drupal", "Magento"] },
+ 
 ];
 
 function BlueprintTechnicalSystemSection() {
   return (
     <section className="blueprint-section">
       <header className="blueprint-heading-row">
-        <span className="blueprint-heading-index">03</span>
-        <span className="blueprint-heading-label">Technical System</span>
+        <p className="blueprint-heading-kicker">03 / TECHNICAL SYSTEM</p>
       </header>
 
       <div className="technical-grid">
         {technicalSystem.map((group) => (
           <article key={group.title} className="blueprint-cell technical-cell">
-            <p className="micro-label">{group.title}</p>
+            <p className="technical-title">{group.title}</p>
             <ul>
               {group.items.map((item) => (
                 <li key={item}>{item}</li>

@@ -1,4 +1,6 @@
 import React from "react";
+import { motion } from "framer-motion";
+import { useBlueprintMotion } from "./blueprintMotion";
 import decpro from "../images/work/decpro.png";
 import pronins from "../images/work/pronins.png";
 import nyinterboro from "../images/work/nyinterboro.png";
@@ -37,83 +39,41 @@ const projects = [
 ];
 
 function BlueprintSelectedWorkSection() {
-  const [featured, second, third] = projects;
+  const { revealItem, staggerDelay } = useBlueprintMotion();
 
   return (
     <section className="blueprint-section" id="work">
-      <header className="blueprint-heading-row">
+      <motion.header
+        className="blueprint-heading-row"
+        {...revealItem(staggerDelay(0))}
+      >
         <p className="blueprint-heading-kicker">04 / SELECTED WORK</p>
-      </header>
+      </motion.header>
 
       <div className="selected-work-grid">
-        <a
-          href={featured.link}
-          target="_blank"
-          rel="noreferrer"
-          className="blueprint-cell selected-tile featured"
-        >
-          <p className="micro-label">Project {featured.no}</p>
-          <h3>{featured.title}</h3>
-          <p className="selected-stack">{featured.stack}</p>
-          <p className="selected-role">{featured.role}</p>
-          <div className="selected-image-wrap">
-            <img
-              src={featured.img}
-              alt={featured.title}
-              style={{ objectPosition: featured.objectPosition }}
-            />
-          </div>
-          <p className="selected-note">{featured.note}</p>
-        </a>
-
-        <a
-          href={second.link}
-          target="_blank"
-          rel="noreferrer"
-          className="blueprint-cell selected-tile"
-        >
-          <p className="micro-label">Project {second.no}</p>
-          <h3>{second.title}</h3>
-          <p className="selected-stack">{second.stack}</p>
-          <p className="selected-role">{second.role}</p>
-          <div className="selected-image-wrap">
-            <img
-              src={second.img}
-              alt={second.title}
-              style={{ objectPosition: second.objectPosition }}
-            />
-          </div>
-          <p className="selected-note">{second.note}</p>
-        </a>
-
-        <a
-          href={third.link}
-          target="_blank"
-          rel="noreferrer"
-          className="blueprint-cell selected-tile"
-        >
-          <p className="micro-label">Project {third.no}</p>
-          <h3>{third.title}</h3>
-          <p className="selected-stack">{third.stack}</p>
-          <p className="selected-role">{third.role}</p>
-          <div className="selected-image-wrap">
-            <img
-              src={third.img}
-              alt={third.title}
-              style={{ objectPosition: third.objectPosition }}
-            />
-          </div>
-          <p className="selected-note">{third.note}</p>
-        </a>
-
-        <article className="blueprint-cell selected-spec">
-          <p className="micro-label">Specification</p>
-          <p>
-            Design and engineering projects with a blueprint approach:
-            modular UI, measurable performance, reusable systems, and
-            production-ready delivery.
-          </p>
-        </article>
+        {projects.map((project, index) => (
+          <motion.a
+            key={project.title}
+            href={project.link}
+            target="_blank"
+            rel="noreferrer"
+            className="blueprint-cell selected-tile"
+            {...revealItem(staggerDelay(1 + index))}
+          >
+            <p className="micro-label">Project {project.no}</p>
+            <h3>{project.title}</h3>
+            <p className="selected-stack">{project.stack}</p>
+            <p className="selected-role">{project.role}</p>
+            <div className="selected-image-wrap">
+              <img
+                src={project.img}
+                alt={project.title}
+                style={{ objectPosition: project.objectPosition }}
+              />
+            </div>
+            <p className="selected-note">{project.note}</p>
+          </motion.a>
+        ))}
       </div>
     </section>
   );

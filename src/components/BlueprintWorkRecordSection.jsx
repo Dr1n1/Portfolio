@@ -1,4 +1,6 @@
 import React from "react";
+import { motion } from "framer-motion";
+import { useBlueprintMotion } from "./blueprintMotion";
 
 const workRecords = [
   {
@@ -34,26 +36,38 @@ const workRecords = [
 ];
 
 function BlueprintWorkRecordSection() {
+  const { revealItem, staggerDelay } = useBlueprintMotion();
+
   return (
     <section className="blueprint-section">
-      <header className="blueprint-heading-row">
+      <motion.header
+        className="blueprint-heading-row"
+        {...revealItem(staggerDelay(0))}
+      >
         <p className="blueprint-heading-kicker">02 / WORK RECORD</p>
-      </header>
+      </motion.header>
 
       <div className="work-record-table">
-        <div className="work-row work-row-head">
+        <motion.div
+          className="work-row work-row-head"
+          {...revealItem(staggerDelay(1))}
+        >
           <span>Company</span>
           <span>Role</span>
           <span>Period</span>
           <span>Impact</span>
-        </div>
-        {workRecords.map((record) => (
-          <div key={`${record.company}-${record.period}`} className="work-row">
+        </motion.div>
+        {workRecords.map((record, index) => (
+          <motion.div
+            key={`${record.company}-${record.period}`}
+            className="work-row"
+            {...revealItem(staggerDelay(2 + index))}
+          >
             <span>{record.company}</span>
             <span>{record.role}</span>
             <span>{record.period}</span>
             <span>{record.impact}</span>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

@@ -1,4 +1,6 @@
 import React from "react";
+import { motion } from "framer-motion";
+import { useBlueprintMotion } from "./blueprintMotion";
 
 const socials = [
   { label: "GitHub", href: "https://github.com/Dr1n1" },
@@ -15,14 +17,22 @@ const profileMeta = [
 ];
 
 function BlueprintProfileSection() {
+  const { revealItem, staggerDelay } = useBlueprintMotion();
+
   return (
     <section className="blueprint-section" id="about">
-      <header className="blueprint-heading-row">
+      <motion.header
+        className="blueprint-heading-row"
+        {...revealItem(staggerDelay(0))}
+      >
         <p className="blueprint-heading-kicker">01 / PROFILE</p>
-      </header>
+      </motion.header>
 
       <div className="profile-grid">
-        <article className="blueprint-cell profile-main">
+        <motion.article
+          className="blueprint-cell profile-main"
+          {...revealItem(staggerDelay(1))}
+        >
           <p className="micro-label">Identity</p>
           <h2 className="blueprint-title profile-display">Web-Application Developer.</h2>
           <p className="blueprint-copy">
@@ -37,9 +47,12 @@ function BlueprintProfileSection() {
             ))}
             <a href="#footer">CV</a>
           </div>
-        </article>
+        </motion.article>
 
-        <aside className="blueprint-cell profile-side">
+        <motion.aside
+          className="blueprint-cell profile-side"
+          {...revealItem(staggerDelay(2))}
+        >
           <p className="micro-label">Current Position</p>
           <p className="blueprint-copy spec-copy">
             Freelance full-stack developer focused on frontend systems and
@@ -50,15 +63,19 @@ function BlueprintProfileSection() {
             <p>Shopify app product implementation</p>
             <p>Design-to-code execution with measurable output</p>
           </div>
-        </aside>
+        </motion.aside>
       </div>
 
       <div className="profile-meta-row">
-        {profileMeta.map((item) => (
-          <div key={item.label} className="blueprint-cell meta-cell">
+        {profileMeta.map((item, index) => (
+          <motion.div
+            key={item.label}
+            className="blueprint-cell meta-cell"
+            {...revealItem(staggerDelay(3 + index))}
+          >
             <p className="micro-label">{item.label}</p>
             <p>{item.value}</p>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

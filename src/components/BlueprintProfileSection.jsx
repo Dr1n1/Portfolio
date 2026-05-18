@@ -16,6 +16,18 @@ const profileMeta = [
   { label: "Experience", value: "5+ years delivery-focused web work" },
 ];
 
+const cvPdfUrl = `${process.env.PUBLIC_URL || ""}/DrinKrasniqiCV.pdf`;
+
+function handleCvDownload(event) {
+  event.preventDefault();
+  const link = document.createElement("a");
+  link.href = cvPdfUrl;
+  link.download = "DrinKrasniqiCV.pdf";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
 function BlueprintProfileSection() {
   const { revealItem, staggerDelay } = useBlueprintMotion();
 
@@ -45,7 +57,9 @@ function BlueprintProfileSection() {
                 {item.label}
               </a>
             ))}
-            <a href="#footer">CV</a>
+            <a href={cvPdfUrl} onClick={handleCvDownload}>
+              CV
+            </a>
           </div>
         </motion.article>
 

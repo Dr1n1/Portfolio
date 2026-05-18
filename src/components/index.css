@@ -339,7 +339,7 @@
     font-size: 0.9rem;
 }
 
-.work-row span:nth-child(4) {
+.work-row span {
     line-height: 1.55;
     text-align: left;
 }
@@ -804,9 +804,7 @@
         text-align: left;
     }
 
-    .work-row span:nth-child(4) {
-        text-align: center;
-    }
+ 
     .work-row-head {
         display: none;
     }

@@ -44,7 +44,7 @@ function BlueprintWorkRecordSection() {
         className="blueprint-heading-row"
         {...revealItem(staggerDelay(0))}
       >
-        <p className="blueprint-heading-kicker">02 / WORK RECORD</p>
+        <p className="blueprint-heading-kicker">02 / WORK EXPERIENCE</p>
       </motion.header>
 
       <div className="work-record-table">

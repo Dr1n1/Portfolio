@@ -1,12 +1,17 @@
 import React, {useEffect} from "react";
-import Intro from "./Intro";
-import About from "./About";
-import Portfolio from "./Portfolio";
-import Footer from "./Footer";
 import { useInView } from 'react-intersection-observer';
+import { motion } from "framer-motion";
+import { useBlueprintMotion } from "./blueprintMotion";
+import SectionOneHero from "./SectionOneHero";
+import BlueprintProfileSection from "./BlueprintProfileSection";
+import BlueprintWorkRecordSection from "./BlueprintWorkRecordSection";
+import BlueprintTechnicalSystemSection from "./BlueprintTechnicalSystemSection";
+import BlueprintSelectedWorkSection from "./BlueprintSelectedWorkSection";
+import BlueprintFooterRow from "./BlueprintFooterRow";
 import "./index.css"
-function Home({setActiveSection}) {
-  const [homeRef, homeInView] = useInView ({threshold: 0.1});
+function Home({ activeSection, setActiveSection }) {
+  const { revealSection } = useBlueprintMotion();
+  const [homeRef, homeInView] = useInView ({threshold: 0.2});
   const [aboutRef, aboutInView] = useInView ({threshold: 0.1});
   const [servicesRef, servicesInView] = useInView ({threshold: 0.1});
 
@@ -15,28 +20,41 @@ function Home({setActiveSection}) {
     else if (aboutInView) setActiveSection('#about');
     else if (servicesInView) setActiveSection('#work');
   }, [homeInView, aboutInView, servicesInView, setActiveSection]);
+
   return (
     <div className="containeraboutselector">
-      {/* <div ref={homeRef} className="snapaboutdiv" id='home'>
-        <Intro />
-      </div> */}
-      <div className="">
-        <div className="relative" style={{ backgroundColor: "black" }}>
-          <div className="inset-0 flex justify-center sm:px-8">
-            <div className="flex w-full max-w-7xl lg:px-24">
-              <div className="w-full bg-white ring-1 ring-zinc-100 dark:bg-zinc-900 dark:ring-zinc-300/20">
-                <div ref={aboutRef}   className="snapaboutdiv" id="about">
-                  <About />
-                </div>
-                <div  ref={servicesRef} className="snapaboutdiv" id="work">
-                  {/* <Portfolio/> */}
-                </div>
-          <Footer />
-              </div>
-            </div>
-          </div>
-        </div>
+      <div ref={homeRef} className="snapaboutdiv" id="home">
+        <SectionOneHero activeSection={activeSection} />
       </div>
+      <main className="blueprint-page">
+        <motion.div
+          ref={aboutRef}
+          className="snapaboutdiv panel-reveal"
+          {...revealSection(0.05)}
+        >
+          <BlueprintProfileSection />
+        </motion.div>
+
+        <motion.div className="panel-reveal" {...revealSection(0.08)}>
+          <BlueprintWorkRecordSection />
+        </motion.div>
+
+        <motion.div className="panel-reveal" {...revealSection(0.1)}>
+          <BlueprintTechnicalSystemSection />
+        </motion.div>
+
+        <motion.div
+          ref={servicesRef}
+          className="snapaboutdiv panel-reveal"
+          {...revealSection(0.12)}
+        >
+          <BlueprintSelectedWorkSection />
+        </motion.div>
+
+        <motion.div className="panel-reveal" {...revealSection(0.14)}>
+          <BlueprintFooterRow />
+        </motion.div>
+      </main>
     </div>
   );
 }
